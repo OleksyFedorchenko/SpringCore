@@ -5,6 +5,14 @@
         xmlns:context="http://www.springframework.org/schema/context"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
 
-
+    <bean id="footballCoach" class="ua.logos.model.FootbalCoach"></bean>
+    <bean id="happyFortuneService" class="ua.logos.service.impl.HappyFortuneService"></bean>
+    <bean id="sadFortuneService" class="ua.logos.service.impl.SadFortuneService"></bean>
+    <bean class="ua.logos.model.TennisCoach">
+        <constructor-arg ref="sadFortuneService"/>
+    </bean>
+    <bean class="ua.logos.model.HockeyCoach">
+        <property name="fortuneService" ref="happyFortuneService"></property>
+    </bean>
 
 </beans>
